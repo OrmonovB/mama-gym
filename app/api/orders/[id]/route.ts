@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase'
 
-export async function PATCH(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+export async function PATCH(req: Request, context: any) {
   try {
     const { id } = await context.params
     const { status } = await req.json()
@@ -14,7 +14,7 @@ export async function PATCH(req: NextRequest, context: { params: Promise<{ id: s
 
     if (error) return NextResponse.json({ error: error.message }, { status: 500 })
     return NextResponse.json({ success: true })
-  } catch (err) {
+  } catch {
     return NextResponse.json({ error: 'Ошибка сервера' }, { status: 500 })
   }
 }
