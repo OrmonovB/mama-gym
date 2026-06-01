@@ -18,7 +18,7 @@ export default function ArticlesPage() {
       <section className="page-hero compact">
         <div className="container">
           <div className="crumbs"><Link href="/">Главная</Link><span className="sep">/</span><span>Статьи</span></div>
-          <div className="ph-eyebrow"><span className="dot"></span>120 материалов</div>
+          {/* ПРАВКА: убрано "120 материалов" */}
           <h1>Статьи для <em>мам</em></h1>
           <p className="lead">Советы экспертов, разборы упражнений, питание и психология юной спортсменки.</p>
         </div>

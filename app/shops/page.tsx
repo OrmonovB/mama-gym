@@ -2,13 +2,14 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 
+// ПРАВКА: убраны чешки, добавлены скакалка/обруч/мяч/булавы/лента, переименовано в Магазин
 const SHOPS = [
-  { name:'GymStyle', city:'Москва', spec:'Форма и аксессуары', rating:'4.9', reviews:214, emoji:'🛍️', tag:'Топ выбор' },
-  { name:'Лента и обруч', city:'Санкт-Петербург', spec:'Предметы для гимнастики', rating:'4.8', reviews:176, emoji:'🎀', tag:'' },
-  { name:'Sport Elegance', city:'Казань', spec:'Купальники и форма', rating:'4.7', reviews:132, emoji:'👗', tag:'Проверено' },
-  { name:'Чешки.ру', city:'Вся Россия', spec:'Обувь для гимнасток', rating:'4.9', reviews:308, emoji:'🩰', tag:'Онлайн' },
-  { name:'Гимнастика Плюс', city:'Екатеринбург', spec:'Всё для тренировок', rating:'4.6', reviews:98, emoji:'⭐', tag:'' },
-  { name:'Ритм', city:'Новосибирск', spec:'Инвентарь и аксессуары', rating:'4.7', reviews:87, emoji:'🎶', tag:'Проверено' },
+  { name:'Скакалки', city:'Предметы', spec:'Скакалки для художественной гимнастики', rating:'4.9', reviews:214, emoji:'🪢', tag:'Топ выбор' },
+  { name:'Обручи', city:'Предметы', spec:'Обручи диаметром 60–90 см', rating:'4.8', reviews:176, emoji:'⭕', tag:'' },
+  { name:'Мячи', city:'Предметы', spec:'Мячи диаметром 15–18.5 см', rating:'4.7', reviews:132, emoji:'🔵', tag:'Проверено' },
+  { name:'Булавы', city:'Предметы', spec:'Булавы 36–45.5 см', rating:'4.9', reviews:308, emoji:'🎳', tag:'' },
+  { name:'Ленты', city:'Предметы', spec:'Ленты 4–6 м с палочкой', rating:'4.6', reviews:98, emoji:'🎀', tag:'' },
+  { name:'Тренировочная одежда', city:'Одежда', spec:'Топы, шорты, лосины, кофты', rating:'4.7', reviews:87, emoji:'👗', tag:'Проверено' },
 ]
 
 export default function ShopsPage() {
@@ -17,10 +18,10 @@ export default function ShopsPage() {
       <Nav />
       <section className="page-hero compact">
         <div className="container">
-          <div className="crumbs"><Link href="/">Главная</Link><span className="sep">/</span><span>Магазины</span></div>
-          <div className="ph-eyebrow"><span className="dot"></span>180 магазинов</div>
-          <h1>Магазины для <em>гимнасток</em></h1>
-          <p className="lead">Чешки, лента, обруч, мяч, скакалка — всё для тренировок и соревнований с честными отзывами от мам.</p>
+          {/* ПРАВКА: Магазины → Магазин, убрано "180 магазинов" */}
+          <div className="crumbs"><Link href="/">Главная</Link><span className="sep">/</span><span>Магазин</span></div>
+          <h1>Магазин для <em>гимнасток</em></h1>
+          <p className="lead">Скакалка, обруч, мяч, булавы, лента и тренировочная одежда — всё для художественной гимнастики.</p>
         </div>
       </section>
 

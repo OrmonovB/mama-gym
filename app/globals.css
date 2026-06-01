@@ -370,3 +370,19 @@ tr:hover td{background:#fafafa}
   table { font-size:11px; }
   th, td { padding:8px 10px; }
 }
+
+@media(min-width:981px) and (max-width:1280px) {
+  .hero-inner {
+    padding: 100px 0 60px;
+    gap: 24px;
+  }
+  .hero-text h1 {
+    font-size: clamp(38px, 4.5vw, 64px);
+  }
+  .hero-cta {
+    margin-top: 0;
+  }
+  .hero-meta {
+    margin-top: 40px;
+  }
+}
