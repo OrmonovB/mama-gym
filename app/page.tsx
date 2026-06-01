@@ -52,7 +52,7 @@ export default function Home() {
 
       {/* HERO */}
       <section className="hero">
-        <div className="container hero-inner">
+        <div className="container hero-inner" style={{paddingLeft:32, paddingRight:32}}>
           <div className="hero-text">
             <div className="eyebrow"><span className="dot"></span>Сообщество мам · 12 400+ участниц</div>
             <h1>Мама<br/>гимнастки:<br/><em>вместе</em> <span className="stroke">к&nbsp;успеху</span></h1>
