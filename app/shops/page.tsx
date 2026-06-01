@@ -1,6 +1,8 @@
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import FilterBar from '@/components/FilterBar'
+
 
 // ПРАВКА: убраны чешки, добавлены скакалка/обруч/мяч/булавы/лента, переименовано в Магазин
 const SHOPS = [
@@ -27,6 +29,11 @@ export default function ShopsPage() {
 
       <section style={{padding:'80px 0 100px', background:'#fff'}}>
         <div className="container">
+          <FilterBar
+            showDiscount={false}
+            sizes={['XS', 'S', 'M', 'L', 'XL']}
+            onFilterChange={(filters) => console.log(filters)}
+          />
           <div style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24}}>
             {SHOPS.map((s,i) => (
               <div key={i} style={{border:'1px solid rgba(43,43,43,.08)',borderRadius:24,overflow:'hidden',background:'#fff',cursor:'pointer',transition:'transform .25s, box-shadow .25s'}}>

@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import FilterBar from '@/components/FilterBar'
+
 
 const PRODUCTS = [
   { id:1, name:'Купальник «Лебедь»',    price:'от 8 500 ₽', emoji:'🩱', desc:'Белый бархат с серебристой вышивкой. Идеален для лирических программ.', cls:'1' },
@@ -94,6 +96,10 @@ export default function AtelierPage() {
 
       <section style={{padding:'80px 0 100px', background:'#fff'}}>
         <div className="container">
+          <FilterBar
+            sizes={['30', '32', '34', '36', '38', '40', '42', '44']}
+            onFilterChange={(filters) => console.log(filters)}
+          />
           <div className="catalog-grid">
             {PRODUCTS.map(p => (
               <div className="prod-card" key={p.id}>
