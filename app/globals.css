@@ -217,7 +217,7 @@ footer{background:var(--ink);color:#fff;padding:80px 0 32px;margin-top:80px}
 
 /* CATALOG (atelier) */
 .catalog{padding:80px 0}
-.catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.catalog-grid {display: grid;grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));gap: 24px;}
 .prod-card{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#fff;transition:transform .25s,box-shadow .25s}
 .prod-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(217,124,138,.3)}
 .prod-card__img{height:200px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative;overflow:hidden}
@@ -337,7 +337,7 @@ tr:hover td{background:#fafafa}
   .page-hero h1 { font-size:clamp(36px,8vw,56px); }
 
   /* Catalog */
-  .catalog-grid { grid-template-columns:1fr; }
+  .catalog-grid { grid-template-columns: repeat(2, 1fr); }
 
   /* Admin */
   .admin-sidebar { display:none; }
@@ -385,4 +385,8 @@ tr:hover td{background:#fafafa}
   .hero-meta {
     margin-top: 40px;
   }
+}
+
+@media(max-width:560px) {
+  .catalog-grid { grid-template-columns: 1fr; }
 }

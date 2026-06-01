@@ -97,7 +97,7 @@ export default function ShopsPage() {
               Ничего не найдено — попробуйте изменить фильтры
             </div>
           ) : (
-            <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:24}}>
+            <div style={{display:'grid',gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',gap:24}}>
               {filtered.map(s => (
                 <div key={s.id} style={{border:'1px solid rgba(43,43,43,.08)',borderRadius:24,overflow:'hidden',background:'#fff',cursor:'pointer',transition:'transform .25s,box-shadow .25s',position:'relative'}}>
                   <div style={{height:160,background:'linear-gradient(135deg,#2b2b2b,#4a4244)',position:'relative',display:'flex',alignItems:'center',justifyContent:'center'}}>
