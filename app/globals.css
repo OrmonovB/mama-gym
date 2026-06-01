@@ -285,7 +285,7 @@ tr:hover td{background:#fafafa}
 .privacy-page{padding:60px 0 80px;background:#fff}
 
 @media(max-width:980px){
-  .container { padding: 0 20px; }
+  .container { padding: 0 32px; }
 
   /* Header */
   .nav-links { display:none; }
