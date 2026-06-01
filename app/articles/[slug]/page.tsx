@@ -116,12 +116,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
                 Все статьи
               </Link>
-              <div style={{borderTop:'1px solid var(--line)', paddingTop:28, marginTop:20}}>
-                <Link href="/articles" style={{fontSize:14, color:'var(--pink-deep)', textDecoration:'none', display:'flex', alignItems:'center', gap:6, fontWeight:600}}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-                    Все статьи
-                </Link>
-            </div>
             </div>
           </div>
 
