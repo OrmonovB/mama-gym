@@ -12,21 +12,33 @@ type ShopItem = {
 }
 
 const ITEMS: ShopItem[] = [
-  { id:1,  name:'Скакалка',          category:'Предметы',          spec:'Скакалка для художественной гимнастики', price:890,  priceLabel:'от 890 ₽',   emoji:'🪢', tag:'Топ выбор', popular:95, isNew:false },
-  { id:2,  name:'Обруч',             category:'Предметы',          spec:'Обруч диаметром 60–90 см',              price:1200, priceLabel:'от 1 200 ₽',  emoji:'⭕', tag:'',          popular:88, isNew:false },
-  { id:3,  name:'Мяч',               category:'Предметы',          spec:'Мяч диаметром 15–18.5 см',             price:950,  priceLabel:'от 950 ₽',    emoji:'🔵', tag:'Проверено', popular:82, isNew:false },
-  { id:4,  name:'Булавы',            category:'Предметы',          spec:'Булавы 36–45.5 см',                    price:1500, priceLabel:'от 1 500 ₽',  emoji:'🎳', tag:'',          popular:78, isNew:false },
-  { id:5,  name:'Лента',             category:'Предметы',          spec:'Лента 4–6 м с палочкой',               price:750,  priceLabel:'от 750 ₽',    emoji:'🎀', tag:'',          popular:85, isNew:false },
-  { id:6,  name:'Палочка для ленты', category:'Предметы',          spec:'Палочка 50–60 см',                     price:400,  priceLabel:'от 400 ₽',    emoji:'🪄', tag:'',          popular:70, isNew:false },
-  { id:7,  name:'Топы и майки',      category:'Одежда',            spec:'Тренировочные топы и майки',           price:1800, priceLabel:'от 1 800 ₽',  emoji:'👚', tag:'',          popular:90, isNew:true  },
-  { id:8,  name:'Шорты',             category:'Одежда',            spec:'Шорты для тренировок',                 price:1200, priceLabel:'от 1 200 ₽',  emoji:'🩳', tag:'Проверено', popular:86, isNew:false },
-  { id:9,  name:'Лосины и бриджи',   category:'Одежда',            spec:'Лосины и бриджи',                      price:2100, priceLabel:'от 2 100 ₽',  emoji:'👖', tag:'',          popular:88, isNew:false },
-  { id:10, name:'Кофты',             category:'Одежда',            spec:'Спортивные кофты',                     price:2500, priceLabel:'от 2 500 ₽',  emoji:'🧥', tag:'',          popular:75, isNew:true  },
-  { id:11, name:'Рюкзаки',           category:'Чехлы и рюкзаки',  spec:'Рюкзаки для гимнастики',              price:3500, priceLabel:'от 3 500 ₽',  emoji:'🎒', tag:'Топ выбор', popular:92, isNew:false },
-  { id:12, name:'Чехол для обруча',  category:'Чехлы и рюкзаки',  spec:'Чехлы для обруча',                    price:800,  priceLabel:'от 800 ₽',    emoji:'🛍️', tag:'',          popular:80, isNew:false },
-  { id:13, name:'Полупальцы',        category:'Сопутствующие',     spec:'Полупальцы для гимнастики',           price:350,  priceLabel:'от 350 ₽',    emoji:'🤚', tag:'',          popular:88, isNew:false },
-  { id:14, name:'Резина для растяжки',category:'Сопутствующие',    spec:'Эластичная лента',                    price:450,  priceLabel:'от 450 ₽',    emoji:'🔴', tag:'Проверено', popular:85, isNew:false },
-  { id:15, name:'Наколенники',       category:'Сопутствующие',     spec:'Наколенники для гимнастики',          price:600,  priceLabel:'от 600 ₽',    emoji:'🦵', tag:'',          popular:76, isNew:false },
+  { id:1,  name:'Скакалка',           category:'Предметы',         spec:'Скакалка для художественной гимнастики', price:890,  priceLabel:'от 890 ₽',   emoji:'🪢', tag:'Топ выбор', popular:95, isNew:false },
+  { id:2,  name:'Обруч',              category:'Предметы',         spec:'Обруч диаметром 60–90 см',              price:1200, priceLabel:'от 1 200 ₽',  emoji:'⭕', tag:'',          popular:88, isNew:false },
+  { id:3,  name:'Мяч',                category:'Предметы',         spec:'Мяч диаметром 15–18.5 см',             price:950,  priceLabel:'от 950 ₽',    emoji:'🔵', tag:'Проверено', popular:82, isNew:false },
+  { id:4,  name:'Булавы',             category:'Предметы',         spec:'Булавы 36–45.5 см',                    price:1500, priceLabel:'от 1 500 ₽',  emoji:'🎳', tag:'',          popular:78, isNew:false },
+  { id:5,  name:'Лента',              category:'Предметы',         spec:'Лента 4–6 м с палочкой',               price:750,  priceLabel:'от 750 ₽',    emoji:'🎀', tag:'',          popular:85, isNew:false },
+  { id:6,  name:'Палочка для ленты',  category:'Предметы',         spec:'Палочка 50–60 см',                     price:400,  priceLabel:'от 400 ₽',    emoji:'🪄', tag:'',          popular:70, isNew:false },
+  /* ПРАВКА: разделены топы и майки */
+  { id:7,  name:'Топы',               category:'Одежда',           spec:'Тренировочные топы',                   price:1400, priceLabel:'от 1 400 ₽',  emoji:'🩴', tag:'',          popular:88, isNew:true  },
+  { id:8,  name:'Майки',              category:'Одежда',           spec:'Тренировочные майки',                  price:1200, priceLabel:'от 1 200 ₽',  emoji:'👚', tag:'',          popular:85, isNew:false },
+  { id:9,  name:'Шорты',              category:'Одежда',           spec:'Шорты для тренировок',                 price:1200, priceLabel:'от 1 200 ₽',  emoji:'🩳', tag:'Проверено', popular:86, isNew:false },
+  { id:10, name:'Футболки',           category:'Одежда',           spec:'Футболки для тренировок',              price:1100, priceLabel:'от 1 100 ₽',  emoji:'👕', tag:'',          popular:80, isNew:false },
+  /* ПРАВКА: разделены лосины и бриджи */
+  { id:11, name:'Лосины',             category:'Одежда',           spec:'Лосины для тренировок',                price:2100, priceLabel:'от 2 100 ₽',  emoji:'🖤', tag:'',          popular:90, isNew:false },
+  { id:12, name:'Бриджи',             category:'Одежда',           spec:'Бриджи для тренировок',                price:1800, priceLabel:'от 1 800 ₽',  emoji:'👖', tag:'',          popular:82, isNew:false },
+  { id:13, name:'Кофты',              category:'Одежда',           spec:'Спортивные кофты',                     price:2500, priceLabel:'от 2 500 ₽',  emoji:'🧥', tag:'',          popular:75, isNew:true  },
+  { id:14, name:'Спортивные штаны',   category:'Одежда',           spec:'Штаны для тренировок',                 price:2200, priceLabel:'от 2 200 ₽',  emoji:'👔', tag:'',          popular:72, isNew:false },
+  { id:15, name:'Спортивные костюмы', category:'Одежда',           spec:'Костюмы для тренировок',               price:4500, priceLabel:'от 4 500 ₽',  emoji:'🎽', tag:'Топ выбор', popular:88, isNew:false },
+  { id:16, name:'Рюкзаки',            category:'Чехлы и рюкзаки', spec:'Рюкзаки для гимнастики',              price:3500, priceLabel:'от 3 500 ₽',  emoji:'🎒', tag:'Топ выбор', popular:92, isNew:false },
+  { id:17, name:'Чехол для скакалки', category:'Чехлы и рюкзаки', spec:'Чехол для скакалки',                  price:500,  priceLabel:'от 500 ₽',    emoji:'🛍️', tag:'',          popular:75, isNew:false },
+  { id:18, name:'Чехол для обруча',   category:'Чехлы и рюкзаки', spec:'Чехлы для обруча',                    price:800,  priceLabel:'от 800 ₽',    emoji:'🛍️', tag:'',          popular:80, isNew:false },
+  { id:19, name:'Чехол для мяча',     category:'Чехлы и рюкзаки', spec:'Чехлы для мяча',                      price:600,  priceLabel:'от 600 ₽',    emoji:'🛍️', tag:'',          popular:78, isNew:false },
+  { id:20, name:'Чехол для булав',    category:'Чехлы и рюкзаки', spec:'Чехлы для булав',                     price:700,  priceLabel:'от 700 ₽',    emoji:'🛍️', tag:'',          popular:70, isNew:false },
+  { id:21, name:'Полупальцы',         category:'Сопутствующие',   spec:'Полупальцы для гимнастики',           price:350,  priceLabel:'от 350 ₽',    emoji:'🤚', tag:'',          popular:88, isNew:false },
+  { id:22, name:'Гетры и носки',      category:'Сопутствующие',   spec:'Гетры и носки для гимнастики',        price:280,  priceLabel:'от 280 ₽',    emoji:'🧦', tag:'',          popular:82, isNew:false },
+  /* ПРАВКА: резина для растяжки → резина для стоп */
+  { id:23, name:'Резина для стоп',    category:'Сопутствующие',   spec:'Эластичная резина для стоп',          price:450,  priceLabel:'от 450 ₽',    emoji:'🦶', tag:'Проверено', popular:85, isNew:false },
+  { id:24, name:'Наколенники',        category:'Сопутствующие',   spec:'Наколенники для гимнастики',          price:600,  priceLabel:'от 600 ₽',    emoji:'🦵', tag:'',          popular:76, isNew:false },
 ]
 
 function applyFilters(items: ShopItem[], filters: FilterState): ShopItem[] {
@@ -42,19 +54,16 @@ function applyFilters(items: ShopItem[], filters: FilterState): ShopItem[] {
 
 const CATEGORIES = ['Все', 'Предметы', 'Одежда', 'Чехлы и рюкзаки', 'Сопутствующие']
 
-/* ПРАВКА 4.1: форма заказа */
-type OrderItem = ShopItem | null
-
 export default function ShopsPage() {
   const [filters, setFilters] = useState<FilterState>({ discount: false, sort: 'popular', priceMin: null, priceMax: null, size: null })
   const [category, setCategory] = useState('Все')
-  const [orderItem, setOrderItem] = useState<OrderItem>(null)
+  const [orderItem, setOrderItem] = useState<ShopItem | null>(null)
   const [orderForm, setOrderForm] = useState({ name:'', phone:'', size:'', color:'', comment:'' })
   const [orderLoading, setOrderLoading] = useState(false)
   const [toast, setToast] = useState(false)
   const [orderError, setOrderError] = useState('')
 
-  const setField = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+  const setField = (k: string) => (e: React.ChangeEvent<HTMLInputElement>) =>
     setOrderForm(f => ({ ...f, [k]: e.target.value }))
 
   async function submitOrder(e: React.FormEvent) {
@@ -97,7 +106,6 @@ export default function ShopsPage() {
 
       <section style={{padding:'40px 0 100px', background:'#fff'}}>
         <div className="container">
-          {/* Категории */}
           <div style={{display:'flex', gap:8, flexWrap:'wrap', marginBottom:8}}>
             {CATEGORIES.map(cat => (
               <button key={cat} onClick={() => setCategory(cat)} style={{
@@ -110,7 +118,6 @@ export default function ShopsPage() {
             ))}
           </div>
 
-          {/* ПРАВКА 4.2: убран размер из фильтров */}
           <FilterBar showDiscount={false} onFilterChange={setFilters} />
 
           {filtered.length === 0 ? (
@@ -120,7 +127,7 @@ export default function ShopsPage() {
           ) : (
             <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(280px, 1fr))', gap:24}}>
               {filtered.map(s => (
-                <div key={s.id} style={{border:'1px solid rgba(43,43,43,.08)', borderRadius:24, overflow:'hidden', background:'#fff', cursor:'pointer', transition:'transform .25s,box-shadow .25s', position:'relative'}}>
+                <div key={s.id} style={{border:'1px solid rgba(43,43,43,.08)', borderRadius:24, overflow:'hidden', background:'#fff', transition:'transform .25s,box-shadow .25s', position:'relative'}}>
                   <div style={{height:160, background:'linear-gradient(135deg,#2b2b2b,#4a4244)', position:'relative', display:'flex', alignItems:'center', justifyContent:'center'}}>
                     <span style={{fontSize:48}}>{s.emoji}</span>
                     {s.tag && <span style={{position:'absolute', top:14, right:14, background:'rgba(255,255,255,.18)', backdropFilter:'blur(8px)', color:'#fff', padding:'5px 12px', borderRadius:999, fontSize:11, fontWeight:600}}>{s.tag}</span>}
@@ -132,10 +139,9 @@ export default function ShopsPage() {
                     <div style={{fontSize:13, color:'#4a4244', marginBottom:10}}>{s.spec}</div>
                     <div style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
                       <div style={{fontSize:15, fontWeight:700, color:'var(--pink-deep)'}}>{s.priceLabel}</div>
-                      {/* ПРАВКА 4.1: кнопка заказа */}
                       <button
                         onClick={() => { setOrderItem(s); setOrderError('') }}
-                        style={{background:'var(--ink)', color:'#fff', border:'none', borderRadius:999, padding:'8px 16px', fontSize:13, fontWeight:600, fontFamily:'Manrope,sans-serif', cursor:'pointer', transition:'background .2s'}}
+                        style={{background:'var(--ink)', color:'#fff', border:'none', borderRadius:999, padding:'8px 16px', fontSize:13, fontWeight:600, fontFamily:'Manrope,sans-serif', cursor:'pointer'}}
                       >Заказать</button>
                     </div>
                   </div>
@@ -146,7 +152,6 @@ export default function ShopsPage() {
         </div>
       </section>
 
-      {/* Модальное окно заказа */}
       {orderItem && (
         <div className="modal-bg open" onClick={e => { if(e.target===e.currentTarget) setOrderItem(null) }}>
           <div className="modal" style={{maxHeight:'90vh', overflowY:'auto'}}>
