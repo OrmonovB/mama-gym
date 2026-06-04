@@ -8,15 +8,8 @@ import FilterBar, { FilterState } from '@/components/FilterBar'
 const SIZES = ['30', '32', '34', '36', '38', '40', '42', '44']
 
 type Product = {
-  id: number
-  name: string
-  price: number
-  priceLabel: string
-  emoji: string
-  desc: string
-  cls: string
-  popular: number
-  isNew: boolean
+  id: number; name: string; price: number; priceLabel: string
+  emoji: string; desc: string; cls: string; popular: number; isNew: boolean
 }
 
 const PRODUCTS: Product[] = [
@@ -92,15 +85,16 @@ export default function AtelierPage() {
         <div className="container">
           <FilterBar sizes={SIZES} onFilterChange={setFilters} />
           {visible.length === 0 ? (
-            <div style={{textAlign:'center',padding:'60px 0',color:'var(--muted)',fontSize:16}}>
+            <div style={{textAlign:'center', padding:'60px 0', color:'var(--muted)', fontSize:16}}>
               Ничего не найдено — попробуйте изменить фильтры
             </div>
           ) : (
             <div className="catalog-grid">
               {visible.map(p => (
                 <div className="prod-card" key={p.id} style={{position:'relative'}}>
-                  <div className={`prod-card__img prod-card__img--${p.cls}`}>
-                    {p.isNew && <span style={{position:'absolute',top:12,left:12,background:'var(--pink-deep)',color:'#fff',fontSize:10,fontWeight:700,padding:'3px 8px',borderRadius:999}}>НОВИНКА</span>}
+                  {/* ПРАВКА 3.1: увеличена высота блока с фото */}
+                  <div className={`prod-card__img prod-card__img--${p.cls}`} style={{height:240}}>
+                    {p.isNew && <span style={{position:'absolute', top:12, left:12, background:'var(--pink-deep)', color:'#fff', fontSize:10, fontWeight:700, padding:'3px 8px', borderRadius:999, zIndex:1}}>НОВИНКА</span>}
                     {p.emoji}
                   </div>
                   <div className="prod-card__body">
@@ -118,31 +112,31 @@ export default function AtelierPage() {
 
       {selected && (
         <div className="modal-bg open" onClick={e => { if(e.target===e.currentTarget) setSelected(null) }}>
-          <div className="modal" style={{maxHeight:'90vh',overflowY:'auto'}}>
+          <div className="modal" style={{maxHeight:'90vh', overflowY:'auto'}}>
             <button className="close-btn" onClick={() => setSelected(null)}>×</button>
-            <div style={{fontFamily:'Playfair Display,serif',fontSize:28,marginBottom:6}}>Оставить заявку</div>
+            <div style={{fontFamily:'Playfair Display,serif', fontSize:28, marginBottom:6}}>Оставить заявку</div>
             <div className="modal-sub">Мы свяжемся с вами в течение 24 часов</div>
-            <div style={{background:'var(--pink-bg)',borderRadius:8,padding:'14px 18px',display:'flex',alignItems:'center',gap:14,marginBottom:24,border:'1px solid var(--pink-soft)'}}>
+            <div style={{background:'var(--pink-bg)', borderRadius:8, padding:'14px 18px', display:'flex', alignItems:'center', gap:14, marginBottom:24, border:'1px solid var(--pink-soft)'}}>
               <div style={{fontSize:30}}>{selected.emoji}</div>
               <div>
-                <div style={{fontSize:14,fontWeight:600}}>{selected.name}</div>
-                <div style={{fontSize:13,color:'var(--pink-deep)',fontWeight:700}}>{selected.priceLabel}</div>
+                <div style={{fontSize:14, fontWeight:600}}>{selected.name}</div>
+                <div style={{fontSize:13, color:'var(--pink-deep)', fontWeight:700}}>{selected.priceLabel}</div>
               </div>
             </div>
             {error && <div className="auth-error" style={{marginBottom:14}}>{error}</div>}
             <form onSubmit={submitForm}>
-              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}>
+              <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:12}}>
                 <div className="field"><label>Имя *</label><input className="form-input" placeholder="Ваше имя" value={form.name} onChange={set('name')} /></div>
                 <div className="field"><label>Фамилия</label><input className="form-input" placeholder="Фамилия" value={form.lastName} onChange={set('lastName')} /></div>
               </div>
               <div className="field"><label>Телефон *</label><input className="form-input" placeholder="+7 (___) ___-__-__" value={form.phone} onChange={set('phone')} /></div>
               <div className="field"><label>Email</label><input className="form-input" type="email" placeholder="example@mail.ru" value={form.email} onChange={set('email')} /></div>
-              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}>
+              <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:12}}>
                 <div className="field"><label>Размер</label><input className="form-input" placeholder="30, 32, 34..." value={form.size} onChange={set('size')} /></div>
                 <div className="field"><label>Дата соревнований</label><input className="form-input" type="date" value={form.date} onChange={set('date')} /></div>
               </div>
               <div className="field"><label>Комментарий</label><input className="form-input" placeholder="Пожелания..." value={form.comment} onChange={set('comment')} /></div>
-              <button type="submit" className="btn btn-primary" style={{width:'100%',padding:16,marginTop:8}} disabled={loading}>
+              <button type="submit" className="btn btn-primary" style={{width:'100%', padding:16, marginTop:8}} disabled={loading}>
                 {loading ? 'Отправляем...' : 'Отправить заявку'}
               </button>
             </form>

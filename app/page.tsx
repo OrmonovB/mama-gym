@@ -12,7 +12,6 @@ export default function Home() {
   const [form, setForm] = useState({ name:'', lastName:'', email:'', password:'', phone:'+7' })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-
   const [user, setUser] = useState<{name:string}|null>(null)
 
   useEffect(() => {
@@ -21,7 +20,6 @@ export default function Home() {
   }, [])
 
   const set = (k:string) => (e:React.ChangeEvent<HTMLInputElement>) => setForm(f=>({...f,[k]:e.target.value}))
-
   function openModal(t:'login'|'register') { setTab(t); setModal(t); setError('') }
   function closeModal() { setModal(null); setError('') }
 
@@ -52,11 +50,10 @@ export default function Home() {
 
       {/* HERO */}
       <section className="hero">
-        <div className="container hero-inner" style={{paddingLeft:32, paddingRight:32}}>
+        <div className="container hero-inner">
           <div className="hero-text">
             <div className="eyebrow"><span className="dot"></span>Сообщество мам · 12 400+ участниц</div>
             <h1>Мама<br/>гимнастки:<br/><em>вместе</em> <span className="stroke">к&nbsp;успеху</span></h1>
-            {/* ПРАВКА 1: убран лишний отступ — hero-cta теперь без margin-top на laptop */}
             <p>Платформа для мам, чьи дочки занимаются художественной гимнастикой. Проверенные купальники и магазины, студии красоты, статьи от экспертов — всё в одном месте.</p>
             <div className="hero-cta">
               {!user && (
@@ -66,9 +63,16 @@ export default function Home() {
                 </button>
               )}
             </div>
+            {/* ПРАВКА 1.2: выравнивание по центру относительно линии */}
             <div className="hero-meta">
-              <div className="stat"><div className="n">12k+</div><div className="l">мам в сообществе</div></div>
-              <div className="stat"><div className="n">4.9</div><div className="l">средний рейтинг</div></div>
+              <div className="stat" style={{textAlign:'center'}}>
+                <div className="n">12k+</div>
+                <div className="l">мам в сообществе</div>
+              </div>
+              <div className="stat" style={{textAlign:'center'}}>
+                <div className="n">4.9</div>
+                <div className="l">средний рейтинг</div>
+              </div>
             </div>
           </div>
           <div className="hero-photo">
@@ -77,7 +81,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="scroll-cue"><span>прокрутите</span><span className="line"></span></div>
+        {/* ПРАВКА 1.3: убран блок "прокрутите" */}
       </section>
 
       {/* MARQUEE */}
@@ -91,13 +95,13 @@ export default function Home() {
       </div>
 
       {/* ABOUT */}
-      {/* ПРАВКА 8: переписан текст под новичков/лайфхаки, убраны репетиции */}
       <section className="about" id="about">
         <div className="container about-inner">
           <div className="section-eyebrow">о нас</div>
           <h2>Мы знаем, как непросто начинать путь в мире <em>художественной&nbsp;гимнастики</em></h2>
           <p className="about-lead">Поиск идеального купальника, подготовка к первым выступлениям, правильная одежда и снаряды — каждый шаг хочется сделать правильно, но информации так мало.</p>
-          <p className="about-body">«Мама гимнастки» — это пространство для мам, чьи дочери только начинают свой путь в гимнастике. Здесь вы найдёте все лайфхаки подготовки: проверенные купальники, спортивную одежду и предметы для художественной гимнастики, студии по макияжу и причёскам, а также сообщество мам, которые уже прошли этот путь.</p>
+          {/* ПРАВКА 1.4: обновлён текст */}
+          <p className="about-body">«Мама гимнастки» — это пространство для мам, чьи дочери только начинают свой путь в гимнастике. Здесь вы найдёте все лайфхаки подготовки: проверенные купальники, предметы для художественной гимнастики, студии по макияжу, причёскам и автозагару, а также сообщество мам, которые уже прошли этот путь.</p>
           <div className="about-sig">— команда «Мама гимнастки»</div>
         </div>
       </section>
@@ -106,22 +110,15 @@ export default function Home() {
       <section className="cats" id="categories">
         <div className="container">
           <div className="cats-head">
-            {/* ПРАВКА 7: новый заголовок */}
             <h2>Четыре раздела, которые помогут создать <em>лучшие условия</em> для вашей гимнастки</h2>
             <p>Каждое место отобрано вручную и проверено сообществом мам. Всё что нужно — в одном месте.</p>
           </div>
           <div className="cats-grid">
             {[
-              { href:'/articles', num:'01', tag:'Статьи', title:'Статьи', desc:'Советы экспертов, разборы упражнений, питание и психология юной спортсменки.', bg:'linear-gradient(135deg,#fce6ea,#e8aeb7)' },
-              {
-                // ПРАВКА 4: грим/маникюр → макияж и автозагар
-                href:'/salons', num:'02', tag:'Студии', title:'Студии', desc:'Макияж, причёски и автозагар для выступлений — мастера, которые знают специфику.', bg:'linear-gradient(135deg,#2b2b2b,#D97C8A)' },
-              {
-                // ПРАВКА 5: убраны "Эскизы, ткани", кристаллы → стразы
-                href:'/atelier', num:'03', tag:'Ателье', title:'Ателье', desc:'Купальники на заказ от мастеров, которые шьют для чемпионок. Стразы, индивидуальный крой.', bg:'linear-gradient(135deg,#F5D5DB,#D97C8A)' },
-              {
-                // ПРАВКА 6: Магазины → Магазин, убраны чешки, добавлены снаряды
-                href:'/shops', num:'04', tag:'Магазин', title:'Магазин', desc:'Скакалка, обруч, мяч, булавы, лента — всё для тренировок и соревнований.', bg:'linear-gradient(135deg,#2b2b2b,#4a4244)' },
+              { href:'/articles', num:'01', tag:'Статьи',  title:'Статьи',  desc:'Советы экспертов, разборы упражнений, питание и психология юной спортсменки.', bg:'linear-gradient(135deg,#fce6ea,#e8aeb7)' },
+              { href:'/salons',   num:'02', tag:'Студии',  title:'Студии',  desc:'Макияж, причёски и автозагар для выступлений — мастера, которые знают специфику.', bg:'linear-gradient(135deg,#2b2b2b,#D97C8A)' },
+              { href:'/atelier',  num:'03', tag:'Ателье',  title:'Ателье',  desc:'Купальники на заказ от мастеров, которые шьют для чемпионок. Стразы, индивидуальный крой.', bg:'linear-gradient(135deg,#F5D5DB,#D97C8A)' },
+              { href:'/shops',    num:'04', tag:'Магазин', title:'Магазин', desc:'Скакалка, обруч, мяч, булавы, лента — всё для тренировок и соревнований.', bg:'linear-gradient(135deg,#2b2b2b,#4a4244)' },
             ].map(c => (
               <Link href={c.href} key={c.href} className="cat">
                 <div className="bg" style={{ background: c.bg }}></div>
@@ -153,9 +150,7 @@ export default function Home() {
                 icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M9 12l2 2 4-4"/><path d="M12 2l9 4v6c0 5-3.5 9-9 10C6.5 21 3 17 3 12V6l9-4z"/></svg> },
               { n:'— 02', title:'Эксперты рядом', text:'Тренеры, хореографы и психологи отвечают на вопросы и пишут материалы для платформы.',
                 icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg> },
-              {
-                // ПРАВКА 2: "нужный салон" вместо "нужное ателье"
-                n:'— 03', title:'Удобный поиск', text:'Фильтры по рейтингу и специализации. Нужный салон или купальник — за пару секунд.',
+              { n:'— 03', title:'Удобный поиск', text:'Фильтры по рейтингу и специализации. Нужный салон или купальник — за пару секунд.',
                 icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg> },
               { n:'— 04', title:'Тёплое сообщество', text:'Мамы, которые понимают вас без слов. Поддержка, советы и дружба на годы вперёд.',
                 icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20.84 4.6a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.07a5.5 5.5 0 1 0-7.78 7.78l1.06 1.07L12 21.23l7.78-7.78 1.06-1.07a5.5 5.5 0 0 0 0-7.78z"/></svg> },
@@ -187,7 +182,6 @@ export default function Home() {
               </div>
             </div>
             <div className="cta-vis">
-              {/* ПРАВКА 3: "нашла салон за один вечер" */}
               {[{av:'А',t:'Анна, Москва',s:'«нашла салон за один вечер!»'},{av:'К',t:'Катерина, СПб',s:'«сообщество — это сила»'},{av:'О',t:'Ольга, Казань',s:'«статьи — клад для новичков»'}].map(c=>(
                 <div className="card" key={c.av}><div className="av">{c.av}</div><div><div className="t">{c.t}</div><div className="s">{c.s}</div></div></div>
               ))}
@@ -198,7 +192,7 @@ export default function Home() {
 
       <Footer />
 
-      {/* MODAL — ПРАВКА 11: исправлен скролл модального окна */}
+      {/* MODAL */}
       {modal && (
         <div className="modal-bg open" onClick={e => { if(e.target===e.currentTarget) closeModal() }}>
           <div className="modal" style={{maxHeight:'90vh', overflowY:'auto'}}>
@@ -212,7 +206,7 @@ export default function Home() {
               <button className={tab==='login'?'active':''} onClick={()=>{setTab('login');setError('')}}>Вход</button>
             </div>
             {error && <div className="auth-error">{error}</div>}
-           <form onSubmit={handleAuth}>
+            <form onSubmit={handleAuth}>
               {tab === 'register' && (
                 <>
                   <div className="field"><label>Ваше имя</label><input placeholder="Анна" value={form.name} onChange={set('name')} required/></div>

@@ -24,9 +24,9 @@ export default function Footer() {
             <h5>разделы</h5>
             <ul>
               <li><Link href="/articles">Статьи</Link></li>
-              <li><Link href="/salons">Салоны</Link></li>
+              <li><Link href="/salons">Студии</Link></li>
               <li><Link href="/atelier">Ателье</Link></li>
-              <li><Link href="/shops">Магазины</Link></li>
+              <li><Link href="/shops">Магазин</Link></li>
             </ul>
           </div>
           <div className="foot-col">
@@ -41,8 +41,9 @@ export default function Footer() {
           <div className="foot-col">
             <h5>помощь</h5>
             <ul>
-              <li><a href="mailto:gymnastmom@yandex.ru">Контакты</a></li>
-              <li><a href="tel:+79647624480">+7 (964) 762-44-80</a></li>
+              <li><a href="mailto:gymnastsmom@yandex.ru">Контакты</a></li>
+              {/* ПРАВКА 1.5: обновлён номер телефона */}
+              <li><a href="tel:+79165649383">+7 (916) 564-93-83</a></li>
               <li><Link href="/privacy">Политика</Link></li>
             </ul>
           </div>

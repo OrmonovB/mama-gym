@@ -34,11 +34,12 @@ export default function Nav() {
           <span className="mark">М</span>
           <span>Мама гимнастки<small>сообщество · 2026</small></span>
         </Link>
+        {/* ПРАВКА 1.1: Салоны → Студии, Магазины → Магазин */}
         <nav className="nav-links">
           <Link href="/articles" className={path === '/articles' ? 'active' : ''}>Статьи</Link>
-          <Link href="/salons"   className={path === '/salons'   ? 'active' : ''}>Салоны</Link>
+          <Link href="/salons"   className={path === '/salons'   ? 'active' : ''}>Студии</Link>
           <Link href="/atelier"  className={path === '/atelier'  ? 'active' : ''}>Ателье</Link>
-          <Link href="/shops"    className={path === '/shops'    ? 'active' : ''}>Магазины</Link>
+          <Link href="/shops"    className={path === '/shops'    ? 'active' : ''}>Магазин</Link>
         </nav>
         <div className="header-right">
           {user ? (
