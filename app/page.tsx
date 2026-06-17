@@ -115,10 +115,10 @@ export default function Home() {
           </div>
           <div className="cats-grid">
             {[
-              { href:'/articles', num:'01', tag:'Статьи',  title:'Статьи',  desc:'Советы экспертов, разборы упражнений, питание и психология юной спортсменки.', bg:'linear-gradient(135deg,#fce6ea,#e8aeb7)' },
-              { href:'/salons',   num:'02', tag:'Студии',  title:'Студии',  desc:'Макияж, причёски и автозагар для выступлений — мастера, которые знают специфику.', bg:'linear-gradient(135deg,#2b2b2b,#D97C8A)' },
-              { href:'/atelier',  num:'03', tag:'Ателье',  title:'Ателье',  desc:'Купальники на заказ от мастеров, которые шьют для чемпионок. Стразы, индивидуальный крой.', bg:'linear-gradient(135deg,#F5D5DB,#D97C8A)' },
-              { href:'/shops',    num:'04', tag:'Магазин', title:'Магазин', desc:'Скакалка, обруч, мяч, булавы, лента — всё для тренировок и соревнований.', bg:'linear-gradient(135deg,#2b2b2b,#4a4244)' },
+              { href:'/articles', num:'01', tag:'Статьи',  title:'Статьи',  desc:'Советы экспертов, разборы упражнений, питание и психология юной спортсменки.', bg:'url(/images/categories/articles.jpg)' },
+              { href:'/salons',   num:'02', tag:'Студии',  title:'Студии',  desc:'Макияж, причёски и автозагар для выступлений — мастера, которые знают специфику.', bg:'url(/images/categories/salons.jpg)' },
+              { href:'/atelier',  num:'03', tag:'Ателье',  title:'Ателье',  desc:'Купальники на заказ от мастеров, которые шьют для чемпионок. Стразы, индивидуальный крой.', bg:'url(/images/categories/atelier.jpg)' },
+              { href:'/shops',    num:'04', tag:'Магазин', title:'Магазин', desc:'Скакалка, обруч, мяч, булавы, лента — всё для тренировок и соревнований.', bg:'url(/images/categories/shops.jpg)'},
             ].map(c => (
               <Link href={c.href} key={c.href} className="cat">
                 <div className="bg" style={{ background: c.bg }}></div>
