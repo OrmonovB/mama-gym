@@ -9,18 +9,18 @@ const SIZES = ['30', '32', '34', '36', '38', '40', '42', '44']
 
 type Product = {
   id: number; name: string; price: number; priceLabel: string
-  photo: string; desc: string; cls: string; popular: number; isNew: boolean
+  photo: string; desc: string; cls: string; popular: number; isNew: boolean; imgPosition: string
 }
 
 const PRODUCTS: Product[] = [
-  { id:1, name:'Купальник «Тропический микс»',   price:10500,  priceLabel:'от 10 500 ₽',  photo:'/images/leotards/1.png', desc:'', cls:'1', popular:95, isNew:false },
-  { id:2, name:'Купальник «Персидские мотивы со стразами»',     price:20000,  priceLabel:'от 20 000 ₽',  photo:'/images/leotards/2.png', desc:'', cls:'2', popular:88, isNew:false },
-  { id:3, name:'Купальник «Песнь лагуны»',    price:12500,  priceLabel:'от 12 500 ₽',  photo:'/images/leotards/3.png', desc:'', cls:'3', popular:92, isNew:true },
-  { id:4, name:'Купальник «Крыло грифона со стразами»',     price:31000,  priceLabel:'от 31 000 ₽',  photo:'/images/leotards/4.png', desc:'', cls:'4', popular:80, isNew:false },
-  { id:5, name:'Купальник «Необитаемый остров со стразами»',   price:23750,  priceLabel:'от 23 750 ₽',  photo:'/images/leotards/5.png', desc:'', cls:'5', popular:75, isNew:false },
-  { id:6, name:'Купальник «Мистери я Вселенной со стразами»', price:31000, priceLabel:'от 31 000 ₽', photo:'/images/leotards/6.png', desc:'', cls:'6', popular:98, isNew:true },
-  { id:7, name:'Купальник «Ночной рубин со стразами»',     price:29000,  priceLabel:'от 29 000 ₽',  photo:'/images/leotards/7.png', desc:'', cls:'7', popular:70, isNew:false },
-  { id:8, name:'Купальник «Цвет волшебства со стразами»',   price:22750,  priceLabel:'от 22 750 ₽',  photo:'/images/leotards/8.png', desc:'', cls:'8', popular:82, isNew:false },
+  { id:1, name:'Купальник «Тропический микс»',   price:10500,  priceLabel:'от 10 500 ₽',  photo:'/images/leotards/11.png', desc:'', cls:'1', popular:95, isNew:false, imgPosition:'center 40%' },
+  { id:2, name:'Купальник «Персидские мотивы со стразами»',     price:20000,  priceLabel:'от 20 000 ₽',  photo:'/images/leotards/22.png', desc:'', cls:'2', popular:88, isNew:false, imgPosition:'center 25%' },
+  { id:3, name:'Купальник «Песнь лагуны»',    price:12500,  priceLabel:'от 12 500 ₽',  photo:'/images/leotards/33.png', desc:'', cls:'3', popular:92, isNew:true, imgPosition:'center 25%' },
+  { id:4, name:'Купальник «Крыло грифона со стразами»',     price:31000,  priceLabel:'от 31 000 ₽',  photo:'/images/leotards/44.png', desc:'', cls:'4', popular:80, isNew:false, imgPosition:'center 70%' },
+  { id:5, name:'Купальник «Необитаемый остров со стразами»',   price:23750,  priceLabel:'от 23 750 ₽',  photo:'/images/leotards/55.png', desc:'', cls:'5', popular:75, isNew:false, imgPosition:'center 90%' },
+  { id:6, name:'Купальник «Мистери я Вселенной со стразами»', price:31000, priceLabel:'от 31 000 ₽', photo:'/images/leotards/66.png', desc:'', cls:'6', popular:98, isNew:true, imgPosition:'center 30%' },
+  { id:7, name:'Купальник «Ночной рубин со стразами»',     price:29000,  priceLabel:'от 29 000 ₽',  photo:'/images/leotards/77.png', desc:'', cls:'7', popular:70, isNew:false, imgPosition:'center 70%' },
+  { id:8, name:'Купальник «Цвет волшебства со стразами»',   price:22750,  priceLabel:'от 22 750 ₽',  photo:'/images/leotards/88.png', desc:'', cls:'8', popular:82, isNew:false, imgPosition:'center 67%' },
   
 ]
 
@@ -95,7 +95,7 @@ export default function AtelierPage() {
                   {/* ПРАВКА 3.1: увеличена высота блока с фото */}
                   <div className={`prod-card__img prod-card__img--${p.cls}`} style={{height:240}}>
                     {p.isNew && <span style={{position:'absolute', top:12, left:12, background:'var(--pink-deep)', color:'#fff', fontSize:10, fontWeight:700, padding:'3px 8px', borderRadius:999, zIndex:1}}>НОВИНКА</span>}
-                    <img src={p.photo} alt={p.name} style={{width:'100%', height:'100%', objectFit:'cover'}} />
+                    <img src={p.photo} alt={p.name} style={{width:'100%', height:'100%', objectFit:'cover', objectPosition:p.imgPosition}} />
                   </div>
                   <div className="prod-card__body">
                     <div className="prod-card__name">{p.name}</div>
