@@ -9,19 +9,19 @@ const SIZES = ['30', '32', '34', '36', '38', '40', '42', '44']
 
 type Product = {
   id: number; name: string; price: number; priceLabel: string
-  emoji: string; desc: string; cls: string; popular: number; isNew: boolean
+  photo: string; desc: string; cls: string; popular: number; isNew: boolean
 }
 
 const PRODUCTS: Product[] = [
-  { id:1, name:'Купальник «Лебедь»',   price:8500,  priceLabel:'от 8 500 ₽',  emoji:'🩱', desc:'Белый бархат с серебристой вышивкой. Идеален для лирических программ.', cls:'1', popular:95, isNew:false },
-  { id:2, name:'Купальник «Весна»',     price:7200,  priceLabel:'от 7 200 ₽',  emoji:'💜', desc:'Нежно-сиреневый с цветочной аппликацией. Лёгкий и воздушный крой.', cls:'2', popular:88, isNew:false },
-  { id:3, name:'Купальник «Звезда»',    price:9800,  priceLabel:'от 9 800 ₽',  emoji:'⭐', desc:'Тёмно-синий со стразами. Для торжественных выступлений.', cls:'3', popular:92, isNew:true },
-  { id:4, name:'Купальник «Огонь»',     price:8000,  priceLabel:'от 8 000 ₽',  emoji:'🔴', desc:'Алый с золотым градиентом. Динамичный дизайн для энергичных программ.', cls:'4', popular:80, isNew:false },
-  { id:5, name:'Купальник «Морская»',   price:6900,  priceLabel:'от 6 900 ₽',  emoji:'🩵', desc:'Бирюзовый с перламутровой отделкой. Плавные линии и мягкая ткань.', cls:'5', popular:75, isNew:false },
-  { id:6, name:'Купальник «Принцесса»', price:11500, priceLabel:'от 11 500 ₽', emoji:'🌸', desc:'Персиковый со стразами. Премиальная ткань, индивидуальный пошив.', cls:'6', popular:98, isNew:true },
-  { id:7, name:'Купальник «Закат»',     price:7800,  priceLabel:'от 7 800 ₽',  emoji:'🌅', desc:'Оранжево-розовый переход. Яркий и запоминающийся на соревнованиях.', cls:'7', popular:70, isNew:false },
-  { id:8, name:'Купальник «Изумруд»',   price:8900,  priceLabel:'от 8 900 ₽',  emoji:'💚', desc:'Насыщенный зелёный с вышивкой. Благородный и элегантный.', cls:'8', popular:82, isNew:false },
-  { id:9, name:'Купальник «Сапфир»',    price:10200, priceLabel:'от 10 200 ₽', emoji:'💙', desc:'Глубокий синий со стразами и сеточными вставками. Современный крой.', cls:'9', popular:90, isNew:true },
+  { id:1, name:'Купальник «Тропический микс»',   price:10500,  priceLabel:'от 10 500 ₽',  photo:'/images/leotards/1.png', desc:'', cls:'1', popular:95, isNew:false },
+  { id:2, name:'Купальник «Персидские мотивы со стразами»',     price:20000,  priceLabel:'от 20 000 ₽',  photo:'/images/leotards/2.png', desc:'', cls:'2', popular:88, isNew:false },
+  { id:3, name:'Купальник «Песнь лагуны»',    price:12500,  priceLabel:'от 12 500 ₽',  photo:'/images/leotards/3.png', desc:'', cls:'3', popular:92, isNew:true },
+  { id:4, name:'Купальник «Крыло грифона со стразами»',     price:31000,  priceLabel:'от 31 000 ₽',  photo:'/images/leotards/4.png', desc:'', cls:'4', popular:80, isNew:false },
+  { id:5, name:'Купальник «Необитаемый остров со стразами»',   price:23750,  priceLabel:'от 23 750 ₽',  photo:'/images/leotards/5.png', desc:'', cls:'5', popular:75, isNew:false },
+  { id:6, name:'Купальник «Мистери я Вселенной со стразами»', price:31000, priceLabel:'от 31 000 ₽', photo:'/images/leotards/6.png', desc:'', cls:'6', popular:98, isNew:true },
+  { id:7, name:'Купальник «Ночной рубин со стразами»',     price:29000,  priceLabel:'от 29 000 ₽',  photo:'/images/leotards/7.png', desc:'', cls:'7', popular:70, isNew:false },
+  { id:8, name:'Купальник «Цвет волшебства со стразами»',   price:22750,  priceLabel:'от 22 750 ₽',  photo:'/images/leotards/8.png', desc:'', cls:'8', popular:82, isNew:false },
+  
 ]
 
 function applyFilters(products: Product[], filters: FilterState): Product[] {
@@ -95,7 +95,7 @@ export default function AtelierPage() {
                   {/* ПРАВКА 3.1: увеличена высота блока с фото */}
                   <div className={`prod-card__img prod-card__img--${p.cls}`} style={{height:240}}>
                     {p.isNew && <span style={{position:'absolute', top:12, left:12, background:'var(--pink-deep)', color:'#fff', fontSize:10, fontWeight:700, padding:'3px 8px', borderRadius:999, zIndex:1}}>НОВИНКА</span>}
-                    {p.emoji}
+                    <img src={p.photo} alt={p.name} style={{width:'100%', height:'100%', objectFit:'cover'}} />
                   </div>
                   <div className="prod-card__body">
                     <div className="prod-card__name">{p.name}</div>
@@ -117,7 +117,7 @@ export default function AtelierPage() {
             <div style={{fontFamily:'Playfair Display,serif', fontSize:28, marginBottom:6}}>Оставить заявку</div>
             <div className="modal-sub">Мы свяжемся с вами в течение 24 часов</div>
             <div style={{background:'var(--pink-bg)', borderRadius:8, padding:'14px 18px', display:'flex', alignItems:'center', gap:14, marginBottom:24, border:'1px solid var(--pink-soft)'}}>
-              <div style={{fontSize:30}}>{selected.emoji}</div>
+              <img src={selected.photo} alt={selected.name} style={{width:50, height:50, objectFit:'cover', borderRadius:8}} />
               <div>
                 <div style={{fontSize:14, fontWeight:600}}>{selected.name}</div>
                 <div style={{fontSize:13, color:'var(--pink-deep)', fontWeight:700}}>{selected.priceLabel}</div>

@@ -9,6 +9,7 @@ export type Article = {
   role: string
   read: string
   bg: string
+  image: string
   sections: {
     heading?: string
     text?: string
@@ -28,6 +29,7 @@ export const ARTICLES: Article[] = [
     lead: 'Правильное питание накануне соревнований — залог хорошего выступления. Разбираем, что есть за 3 дня, накануне и в день турнира.',
     av: 'Е', author: 'Елена Морозова', role: 'Диетолог', read: '6 мин',
     bg: 'linear-gradient(135deg,#F5D5DB,#E8AEB7)',
+    image: '/images/articles/pitanie.jpg',
     sections: [
       {
         heading: 'За 3 дня до соревнований',
@@ -68,6 +70,7 @@ export const ARTICLES: Article[] = [
     lead: 'Как помочь дочери справиться с волнением и выйти на ковёр с уверенностью. Советы спортивного психолога.',
     av: 'М', author: 'Мария Степанова', role: 'Психолог', read: '8 мин',
     bg: 'linear-gradient(135deg,#E8AEB7,#D97C8A)',
+    image: '/images/articles/psikhologiya.jpg',
     sections: [
       {
         heading: 'Почему волнение — это нормально',
@@ -109,6 +112,7 @@ export const ARTICLES: Article[] = [
     lead: 'На что обратить внимание при выборе купальника: ткань, декор, посадка. Советы от опытных мам и мастеров ателье.',
     av: 'О', author: 'Ольга Климова', role: 'Мастер ателье', read: '5 мин',
     bg: 'linear-gradient(135deg,#fce6ea,#f8bbd0)',
+    image: '/images/articles/kupalnick.jpg',
     sections: [
       {
         heading: 'Главное — посадка и свобода движения',
@@ -149,6 +153,7 @@ export const ARTICLES: Article[] = [
     lead: 'Безопасный комплекс для развития гибкости, который можно делать дома под контролем мамы.',
     av: 'А', author: 'Анна Петрова', role: 'Тренер', read: '10 мин',
     bg: 'linear-gradient(135deg,#e8eaf6,#c5cae9)',
+    image: '/images/articles/rastyazhka.jpg',
     sections: [
       {
         heading: 'Важно: безопасность прежде всего',
@@ -191,6 +196,7 @@ export const ARTICLES: Article[] = [
     lead: 'Что взять с собой, как поддержать дочь, на что обратить внимание — полный гид для мамы на первом турнире.',
     av: 'Т', author: 'Татьяна Иванова', role: 'Мама гимнастки', read: '7 мин',
     bg: 'linear-gradient(135deg,#e0f2f1,#b2dfdb)',
+    image: '/images/articles/sorevnovaniya.jpg',
     sections: [
       {
         heading: 'Подготовьтесь заранее',
@@ -233,6 +239,7 @@ export const ARTICLES: Article[] = [
     lead: 'Какие травмы наиболее распространены в художественной гимнастике и как их предотвратить.',
     av: 'Н', author: 'Наталья Сидорова', role: 'Врач-ортопед', read: '9 мин',
     bg: 'linear-gradient(135deg,#fff8e1,#ffecb3)',
+    image: '/images/articles/travmy.jpg',
     sections: [
       {
         heading: 'Самые частые травмы',

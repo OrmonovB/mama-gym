@@ -116,12 +116,12 @@ export default function Home() {
           <div className="cats-grid">
             {[
               { href:'/articles', num:'01', tag:'Статьи',  title:'Статьи',  desc:'Советы экспертов, разборы упражнений, питание и психология юной спортсменки.', bg:'url(/images/categories/articles.jpg)' },
-              { href:'/salons',   num:'02', tag:'Студии',  title:'Студии',  desc:'Макияж, причёски и автозагар для выступлений — мастера, которые знают специфику.', bg:'url(/images/categories/salons.jpg)' },
-              { href:'/atelier',  num:'03', tag:'Ателье',  title:'Ателье',  desc:'Купальники на заказ от мастеров, которые шьют для чемпионок. Стразы, индивидуальный крой.', bg:'url(/images/categories/atelier.jpg)' },
+              { href:'/salons',   num:'02', tag:'Студии',  title:'Студии',  desc:'Макияж, причёски и автозагар для выступлений — мастера, которые знают специфику.', bg:'url(/images/categories/salons.png)',bgPosition:'center 40%' },
+              { href:'/atelier',  num:'03', tag:'Ателье',  title:'Ателье',  desc:'Купальники на заказ от мастеров, которые шьют для чемпионок. Стразы, индивидуальный крой.', bg:'url(/images/categories/atelier.png)' },
               { href:'/shops',    num:'04', tag:'Магазин', title:'Магазин', desc:'Скакалка, обруч, мяч, булавы, лента — всё для тренировок и соревнований.', bg:'url(/images/categories/shops.jpg)'},
             ].map(c => (
               <Link href={c.href} key={c.href} className="cat">
-                <div className="bg" style={{ background: c.bg }}></div>
+                <div className="bg" style={{ background: c.bg, backgroundPosition: c.bgPosition || 'center' }}></div>
                 <div className="num">{c.num}</div>
                 <div className="ctag">{c.tag}</div>
                 <div className="body">

@@ -7,38 +7,38 @@ import FilterBar, { FilterState } from '@/components/FilterBar'
 
 type ShopItem = {
   id: number; name: string; category: string; spec: string
-  price: number; priceLabel: string; emoji: string; tag: string
-  popular: number; isNew: boolean
+  price: number; priceLabel: string; photo: string; tag: string
+  popular: number; isNew: boolean, bgColor: string
 }
 
 const ITEMS: ShopItem[] = [
-  { id:1,  name:'Скакалка',           category:'Предметы',         spec:'Скакалка для художественной гимнастики', price:890,  priceLabel:'от 890 ₽',   emoji:'🪢', tag:'Топ выбор', popular:95, isNew:false },
-  { id:2,  name:'Обруч',              category:'Предметы',         spec:'Обруч диаметром 60–90 см',              price:1200, priceLabel:'от 1 200 ₽',  emoji:'⭕', tag:'',          popular:88, isNew:false },
-  { id:3,  name:'Мяч',                category:'Предметы',         spec:'Мяч диаметром 15–18.5 см',             price:950,  priceLabel:'от 950 ₽',    emoji:'🔵', tag:'Проверено', popular:82, isNew:false },
-  { id:4,  name:'Булавы',             category:'Предметы',         spec:'Булавы 36–45.5 см',                    price:1500, priceLabel:'от 1 500 ₽',  emoji:'🎳', tag:'',          popular:78, isNew:false },
-  { id:5,  name:'Лента',              category:'Предметы',         spec:'Лента 4–6 м с палочкой',               price:750,  priceLabel:'от 750 ₽',    emoji:'🎀', tag:'',          popular:85, isNew:false },
-  { id:6,  name:'Палочка для ленты',  category:'Предметы',         spec:'Палочка 50–60 см',                     price:400,  priceLabel:'от 400 ₽',    emoji:'🪄', tag:'',          popular:70, isNew:false },
+  { id:1,  name:'Скакалка',           category:'Предметы',         spec:'Скакалка для художественной гимнастики', price:3800,  priceLabel:'от 3 800 ₽',   photo:'/images/shops/1.png', bgColor:'#fff', tag:'Топ выбор', popular:95, isNew:false },
+  { id:2,  name:'Обруч',              category:'Предметы',         spec:'Обруч диаметром 60–90 см',               price:3000, priceLabel:'от 3 000 ₽',    photo:'/images/shops/4.png', bgColor:'#fff', tag:'',          popular:88, isNew:false },
+  { id:3,  name:'Мяч',                category:'Предметы',         spec:'Мяч диаметром 15–18.5 см',               price:7900,  priceLabel:'от 7 900 ₽',   photo:'/images/shops/12.png', bgColor:'#fff', tag:'Проверено', popular:82, isNew:false },
+  { id:4,  name:'Булавы',             category:'Предметы',         spec:'Булавы 36–45.5 см',                      price:5800, priceLabel:'от 5 800 ₽',    photo:'/images/shops/17.png', bgColor:'#fff', tag:'',          popular:78, isNew:false },
+  { id:5,  name:'Лента',              category:'Предметы',         spec:'Лента 4–6 м',                            price:3400,  priceLabel:'от 3 400 ₽',    photo:'/images/shops/9.png', bgColor:'#fff', tag:'',          popular:85, isNew:false },
+  { id:6,  name:'Палочка для ленты',  category:'Предметы',         spec:'Палочка 50–60 см',                       price:6000,  priceLabel:'от 6 000 ₽',   photo:'/images/shops/23.png', bgColor:'#fff', tag:'',          popular:70, isNew:false },
   /* ПРАВКА: разделены топы и майки */
-  { id:7,  name:'Топы',               category:'Одежда',           spec:'Тренировочные топы',                   price:1400, priceLabel:'от 1 400 ₽',  emoji:'🩴', tag:'',          popular:88, isNew:true  },
-  { id:8,  name:'Майки',              category:'Одежда',           spec:'Тренировочные майки',                  price:1200, priceLabel:'от 1 200 ₽',  emoji:'👚', tag:'',          popular:85, isNew:false },
-  { id:9,  name:'Шорты',              category:'Одежда',           spec:'Шорты для тренировок',                 price:1200, priceLabel:'от 1 200 ₽',  emoji:'🩳', tag:'Проверено', popular:86, isNew:false },
-  { id:10, name:'Футболки',           category:'Одежда',           spec:'Футболки для тренировок',              price:1100, priceLabel:'от 1 100 ₽',  emoji:'👕', tag:'',          popular:80, isNew:false },
+  { id:7,  name:'Топы',               category:'Одежда',           spec:'Тренировочные топы',                     price:4500, priceLabel:'от 4 500 ₽',    photo:'/images/shops/5.png', bgColor:'#fff', tag:'',          popular:88, isNew:true  },
+  { id:8,  name:'Майки',              category:'Одежда',           spec:'Тренировочные майки',                    price:3600, priceLabel:'от 3 600 ₽',    photo:'/images/shops/10.png', bgColor:'#fff', tag:'',          popular:85, isNew:false },
+  { id:9,  name:'Шорты',              category:'Одежда',           spec:'Шорты для тренировок',                   price:4250, priceLabel:'от 4 250 ₽',    photo:'/images/shops/8.png', bgColor:'#fff', tag:'Проверено', popular:86, isNew:false },
+  { id:10, name:'Футболки',           category:'Одежда',           spec:'Футболки для тренировок',                price:3950, priceLabel:'от 3 950 ₽',    photo:'/images/shops/15.png', bgColor:'#fff', tag:'',          popular:80, isNew:false },
   /* ПРАВКА: разделены лосины и бриджи */
-  { id:11, name:'Лосины',             category:'Одежда',           spec:'Лосины для тренировок',                price:2100, priceLabel:'от 2 100 ₽',  emoji:'🖤', tag:'',          popular:90, isNew:false },
-  { id:12, name:'Бриджи',             category:'Одежда',           spec:'Бриджи для тренировок',                price:1800, priceLabel:'от 1 800 ₽',  emoji:'👖', tag:'',          popular:82, isNew:false },
-  { id:13, name:'Кофты',              category:'Одежда',           spec:'Спортивные кофты',                     price:2500, priceLabel:'от 2 500 ₽',  emoji:'🧥', tag:'',          popular:75, isNew:true  },
-  { id:14, name:'Спортивные штаны',   category:'Одежда',           spec:'Штаны для тренировок',                 price:2200, priceLabel:'от 2 200 ₽',  emoji:'👔', tag:'',          popular:72, isNew:false },
-  { id:15, name:'Спортивные костюмы', category:'Одежда',           spec:'Костюмы для тренировок',               price:4500, priceLabel:'от 4 500 ₽',  emoji:'🎽', tag:'Топ выбор', popular:88, isNew:false },
-  { id:16, name:'Рюкзаки',            category:'Чехлы и рюкзаки', spec:'Рюкзаки для гимнастики',              price:3500, priceLabel:'от 3 500 ₽',  emoji:'🎒', tag:'Топ выбор', popular:92, isNew:false },
-  { id:17, name:'Чехол для скакалки', category:'Чехлы и рюкзаки', spec:'Чехол для скакалки',                  price:500,  priceLabel:'от 500 ₽',    emoji:'🛍️', tag:'',          popular:75, isNew:false },
-  { id:18, name:'Чехол для обруча',   category:'Чехлы и рюкзаки', spec:'Чехлы для обруча',                    price:800,  priceLabel:'от 800 ₽',    emoji:'🛍️', tag:'',          popular:80, isNew:false },
-  { id:19, name:'Чехол для мяча',     category:'Чехлы и рюкзаки', spec:'Чехлы для мяча',                      price:600,  priceLabel:'от 600 ₽',    emoji:'🛍️', tag:'',          popular:78, isNew:false },
-  { id:20, name:'Чехол для булав',    category:'Чехлы и рюкзаки', spec:'Чехлы для булав',                     price:700,  priceLabel:'от 700 ₽',    emoji:'🛍️', tag:'',          popular:70, isNew:false },
-  { id:21, name:'Полупальцы',         category:'Сопутствующие',   spec:'Полупальцы для гимнастики',           price:350,  priceLabel:'от 350 ₽',    emoji:'🤚', tag:'',          popular:88, isNew:false },
-  { id:22, name:'Гетры и носки',      category:'Сопутствующие',   spec:'Гетры и носки для гимнастики',        price:280,  priceLabel:'от 280 ₽',    emoji:'🧦', tag:'',          popular:82, isNew:false },
+  { id:11, name:'Лосины',             category:'Одежда',           spec:'Лосины для тренировок',                  price:5900, priceLabel:'от 2 100 ₽',    photo:'/images/shops/3.png', bgColor:'#fff', tag:'',          popular:90, isNew:false },
+  { id:12, name:'Носки',              category:'Одежда',           spec:'Носки для тренировок',                   price:900, priceLabel:'от 900 ₽',       photo:'/images/shops/14.png', bgColor:'#fff', tag:'',          popular:82, isNew:false },
+  { id:13, name:'Кофты',              category:'Одежда',           spec:'Спортивные кофты',                       price:7500, priceLabel:'от 7 500 ₽',    photo:'/images/shops/20.png', bgColor:'#fff', tag:'',          popular:75, isNew:true  },
+  { id:14, name:'Спортивные штаны',   category:'Одежда',           spec:'Штаны для тренировок',                   price:5000, priceLabel:'от 5 000 ₽',    photo:'/images/shops/22.png', bgColor:'#aaa6a9', tag:'',          popular:72, isNew:false },
+  { id:15, name:'Спортивные костюмы', category:'Одежда',           spec:'Костюмы для тренировок',                 price:10550, priceLabel:'от 10 550 ₽',  photo:'/images/shops/6.png', bgColor:'#fff', tag:'Топ выбор', popular:88, isNew:false },
+  { id:16, name:'Рюкзаки',            category:'Чехлы и рюкзаки',  spec:'Рюкзаки для гимнастики',                 price:6500, priceLabel:'от 6 500 ₽',    photo:'/images/shops/2.png',  bgColor:'#f3f3f5',tag:'Топ выбор', popular:92, isNew:false },
+  { id:17, name:'Чехол для скакалки', category:'Чехлы и рюкзаки', spec:'Чехол для скакалки',                      price:800,  priceLabel:'от 800 ₽',      photo:'/images/shops/21.png', bgColor:'#fff', tag:'',          popular:75, isNew:false },
+  { id:18, name:'Чехол для обруча',   category:'Чехлы и рюкзаки', spec:'Чехлы для обруча',                        price:1500,  priceLabel:'от 1 500 ₽',   photo:'/images/shops/16.png', bgColor:'#fff', tag:'',          popular:80, isNew:false },
+  { id:19, name:'Чехол для мяча',     category:'Чехлы и рюкзаки', spec:'Чехлы для мяча',                          price:900,  priceLabel:'от 900 ₽',      photo:'/images/shops/18.png', bgColor:'#fff', tag:'',          popular:78, isNew:false },
+  { id:20, name:'Чехол для булав',    category:'Чехлы и рюкзаки', spec:'Чехлы для булав',                         price:1500,  priceLabel:'от 1 500 ₽',   photo:'/images/shops/24.png', bgColor:'#fff', tag:'',          popular:70, isNew:false },
+  { id:21, name:'Полупальцы',         category:'Сопутствующие',   spec:'Полупальцы для гимнастики',               price:500,  priceLabel:'от 500 ₽',      photo:'/images/shops/7.png', bgColor:'#d0c9d0', tag:'',          popular:88, isNew:false },
+  { id:22, name:'Гетры',              category:'Сопутствующие',   spec:'Гетры для гимнастики',                    price:2450,  priceLabel:'от 2 450 ₽',   photo:'/images/shops/13.png', bgColor:'#fff', tag:'',          popular:82, isNew:false },
   /* ПРАВКА: резина для растяжки → резина для стоп */
-  { id:23, name:'Резина для стоп',    category:'Сопутствующие',   spec:'Эластичная резина для стоп',          price:450,  priceLabel:'от 450 ₽',    emoji:'🦶', tag:'Проверено', popular:85, isNew:false },
-  { id:24, name:'Наколенники',        category:'Сопутствующие',   spec:'Наколенники для гимнастики',          price:600,  priceLabel:'от 600 ₽',    emoji:'🦵', tag:'',          popular:76, isNew:false },
+  { id:23, name:'Резина для стоп',    category:'Сопутствующие',   spec:'Эластичная резина для стоп',              price:600,  priceLabel:'от 600 ₽',      photo:'/images/shops/11.png', bgColor:'#fff', tag:'Проверено', popular:85, isNew:false },
+  { id:24, name:'Наколенники',        category:'Сопутствующие',   spec:'Наколенники для гимнастики',              price:3350,  priceLabel:'от 3 350 ₽',   photo:'/images/shops/19.png', bgColor:'#fff', tag:'',          popular:76, isNew:false },
 ]
 
 function applyFilters(items: ShopItem[], filters: FilterState): ShopItem[] {
@@ -128,9 +128,9 @@ export default function ShopsPage() {
             <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(280px, 1fr))', gap:24}}>
               {filtered.map(s => (
                 <div key={s.id} style={{border:'1px solid rgba(43,43,43,.08)', borderRadius:24, overflow:'hidden', background:'#fff', transition:'transform .25s,box-shadow .25s', position:'relative'}}>
-                  <div style={{height:160, background:'linear-gradient(135deg,#2b2b2b,#4a4244)', position:'relative', display:'flex', alignItems:'center', justifyContent:'center'}}>
-                    <span style={{fontSize:48}}>{s.emoji}</span>
-                    {s.tag && <span style={{position:'absolute', top:14, right:14, background:'rgba(255,255,255,.18)', backdropFilter:'blur(8px)', color:'#fff', padding:'5px 12px', borderRadius:999, fontSize:11, fontWeight:600}}>{s.tag}</span>}
+                  <div style={{height:160, background:s.bgColor, position:'relative', display:'flex', alignItems:'center', justifyContent:'center'}}>
+                    <img src={s.photo} alt={s.name} style={{width:'100%', height:'100%', objectFit:'contain'}} />
+                    {s.tag && <span style={{position:'absolute', top:14, right:14, background:'rgba(43,43,43,.85)', color:'#fff', padding:'5px 12px', borderRadius:999, fontSize:11, fontWeight:600}}>{s.tag}</span>}
                     {s.isNew && <span style={{position:'absolute', top:14, left:14, background:'var(--pink-deep)', color:'#fff', fontSize:10, fontWeight:700, padding:'3px 8px', borderRadius:999}}>НОВИНКА</span>}
                   </div>
                   <div style={{padding:22}}>
@@ -159,7 +159,7 @@ export default function ShopsPage() {
             <div style={{fontFamily:'Playfair Display,serif', fontSize:28, marginBottom:6}}>Оформить заказ</div>
             <div className="modal-sub">Мы свяжемся с вами в течение 24 часов</div>
             <div style={{background:'var(--pink-bg)', borderRadius:8, padding:'14px 18px', display:'flex', alignItems:'center', gap:14, marginBottom:24, border:'1px solid var(--pink-soft)'}}>
-              <div style={{fontSize:30}}>{orderItem.emoji}</div>
+              <img src={orderItem.photo} alt={orderItem.name} style={{width:50, height:50, objectFit:'contain', borderRadius:8}} />
               <div>
                 <div style={{fontSize:14, fontWeight:600}}>{orderItem.name}</div>
                 <div style={{fontSize:13, color:'var(--pink-deep)', fontWeight:700}}>{orderItem.priceLabel}</div>
